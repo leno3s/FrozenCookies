@@ -2184,25 +2184,16 @@ function autoGodzamokAction() {
 			var countF = Game.Objects['Farm'].amount-1;
 
 			//Automatically sell all cursors and farms (except one) during Dragonflight and Click Frenzy if you worship Godzamok and prevent rapid buy/sell spam
-			if ( ( FrozenCookies.autoGodzamok >= 1 ) && hasClickBuff() && !Game.hasBuff('Devastation') ) {
-				Game.Objects['Cursor'].sell( countC );
-				Game.Objects['Farm'].sell( countF );
-
-				if ( FrozenCookies.autoBuy == 1 ) {
-					if ( ( FrozenCookies.cursorLimit ) && countC > FrozenCookies.cursorMax ) {
-						safeBuy( Game.Objects['Cursor'], FrozenCookies.cursorMax );
-						logEvent( "AutoGodzamok", "Bought " + FrozenCookies.cursorMax + " cursors" );
-					} else {
-						safeBuy( Game.Objects['Cursor'], countC );
-						logEvent( "AutoGodzamok", "Bought " + countC + " cursors" );
-					}
-					if ( ( FrozenCookies.farmLimit ) && countF > ( FrozenCookies.farmMax - 1 ) )  {
-						safeBuy( Game.Objects['Farm'], FrozenCookies.farmMax - 1 );
-						logEvent( "AutoGodzamok", "Bought " + ( FrozenCookies.farmMax - 1 ) + " farms" );
-					} else {
-						safeBuy( Game.Objects['Farm'], countF );
-						logEvent( "AutoGodzamok", "Bought " + countF + " farms" );
-					}
+			if (hasClickBuff() && !Game.hasBuff('Devastation')) {
+				if (countC > 0) {
+					Game.Objects['Cursor'].sell(countC);
+					safeBuy(Game.Objects['Cursor'], countC);
+					logEvent("AutoGodzamok", "Bought " + countC + " cursors");
+				}
+				if (countF > 0) {
+					Game.Objects['Farm'].sell(countF);
+					safeBuy(Game.Objects['Farm'], countF);
+					logEvent("AutoGodzamok", "Bought " + countF + " farms");
 				}
 			}
 		}
