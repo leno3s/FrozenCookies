@@ -2187,11 +2187,13 @@ function autoGodzamokAction() {
 			if (hasClickBuff() && !Game.hasBuff('Devastation')) {
 				if (countC > 0) {
 					Game.Objects['Cursor'].sell(countC);
-					safeBuy(Game.Objects['Cursor'], countC);
-					logEvent("AutoGodzamok", "Bought " + countC + " cursors");
 				}
 				if (countF > 0) {
 					Game.Objects['Farm'].sell(countF);
+				}
+				if (FrozenCookies.autoBuyBack) {
+					safeBuy(Game.Objects['Cursor'], countC);
+					logEvent("AutoGodzamok", "Bought " + countC + " cursors");
 					safeBuy(Game.Objects['Farm'], countF);
 					logEvent("AutoGodzamok", "Bought " + countF + " farms");
 				}

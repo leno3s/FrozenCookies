@@ -110,6 +110,11 @@ FrozenCookies.preferenceValues = {
         'display': ['Auto-Godzamok OFF', 'Auto-Godzamok ON'],
         'default': 0
     },
+    'autoBuyBack': {
+        'hint': 'Automatically buy back same number of units when you sold buildings by autoGodzamok',
+        'display': ['Auto-BuyBack OFF', 'Auto-BuyBack ON'],
+        'default': 0
+    },
     'autoSpell': {
         'hint': 'Automatically cast selected spell when your mana is full',
         'display': ["Auto Cast OFF","Auto Cast CONJURE BAKED GOODS", "Auto Cast FORCE THE HAND OF FATE","Auto Cast SPONTANEOUS EDIFICE","Auto Cast HAGGLER'S CHARM (cheapest)"],
